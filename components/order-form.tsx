@@ -18,21 +18,21 @@ import { Minus, Plus, ShoppingCart, Shield, Truck } from "lucide-react";
 
 const packages = {
   single: {
-    name: "Detox Starter • 1 Box (10 Pads)",
-    price: 2499,
-    originalPrice: 3499,
+    name: "Buy 1 Get 1 Free • 2 Packs",
+    price: 2000,
+    originalPrice: 4000,
     image: "/images/1.jpeg",
   },
   double: {
-    name: "Complete Cleanse • 3 Boxes",
-    price: 6499,
-    originalPrice: 9000,
+    name: "Buy 2 Get 2 Free • 4 Packs",
+    price: 3600,
+    originalPrice: 7200,
     image: "/images/2.jpeg",
   },
   triple: {
-    name: "Family Pack • 5 Boxes",
-    price: 9999,
-    originalPrice: 15000,
+    name: "Buy 3 Get 3 Free • 6 Packs",
+    price: 5100,
+    originalPrice: 12000,
     image: "/images/3.jpeg",
   },
 };

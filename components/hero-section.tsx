@@ -45,7 +45,7 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-emerald-100 mb-6 font-medium">
-            Pull out toxins, reduce swelling, sleep deeper, and wake up light on your feet.
+            Pull out toxins, reduce swelling, sleep deeper, and wake up light on your feet with Kenya’s hottest BOGO detox offer.
           </p>
 
           {/* Hero Coffee Image */}
@@ -59,7 +59,7 @@ export default function HeroSection() {
 
           {/* Simplified Value Proposition */}
           <p className="text-xl md:text-2xl text-lime-200 font-semibold mb-8">
-            Detox • Better Sleep • Reduced Foot Fatigue • Natural Bamboo Vinegar Formula
+            Buy 1 Get 1 Free • Buy 2 Get 2 Free • Buy 3 Get 3 Free • Natural Bamboo Vinegar Formula
           </p>
 
           {/* CTA Buttons */}
@@ -69,7 +69,7 @@ export default function HeroSection() {
               size="lg"
               className="bg-lime-400 hover:bg-lime-500 text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              ORDER NOW - KES 2,499
+              ORDER NOW - KES 2,000
             </Button>
             <Button
               variant="outline"

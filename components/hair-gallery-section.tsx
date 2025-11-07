@@ -89,7 +89,7 @@ export default function HairGallerySection() {
               onClick={() => document.getElementById("order-form")?.scrollIntoView({ behavior: "smooth" })}
               className="bg-lime-400 hover:bg-lime-500 text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              Claim Your Kinoki Box - KES 2,499
+              Claim Your Kinoki Box - KES 2,000
             </button>
           </div>
         </div>
