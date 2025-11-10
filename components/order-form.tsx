@@ -319,9 +319,9 @@ export default function OrderForm() {
                 <div className="border-t pt-6">
                   <div className="flex justify-between items-center text-xl font-bold">
                     <span>Total Amount:</span>
-                    <span className="text-emerald-600">
+                    {/* <span className="text-emerald-600">
                       KES {totalAmount.toLocaleString()}
-                    </span>
+                    </span> */}
                   </div>
                   {/* <div className="flex items-center gap-2 mt-2 text-green-600">
                     <Truck className="w-4 h-4" />
@@ -423,7 +423,7 @@ export default function OrderForm() {
                   >
                     {isSubmitting
                       ? "Processing..."
-                      : `ORDER NOW - KES ${totalAmount.toLocaleString()}`}
+                      : `ORDER NOW`}
                   </Button>
 
                   <div className="flex items-center justify-center gap-2 text-gray-600 text-sm">
