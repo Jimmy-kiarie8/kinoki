@@ -26,14 +26,14 @@ export default function Footer() {
           <div>
             <h4 className="text-xl font-bold mb-4">Contact Us</h4>
             <div className="space-y-3 text-gray-300">
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-lime-300" />
                 <span>+254 712 555 222</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-lime-300" />
                 <span>support@kinokidetox.co.ke</span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-lime-300" />
                 <span>Nairobi CBD, Kenya</span>
@@ -75,7 +75,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Kinoki Detox Kenya. All rights reserved. |
+            © 2025 Kinoki Detox Kenya. All rights reserved. |
             <a href="#" className="hover:text-lime-300 ml-1">
               Privacy Policy
             </a>{" "}
