@@ -30,7 +30,7 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
         
         {/* Meta Pixel Code */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+        {/* <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -52,7 +52,7 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=852172497346099&ev=PageView&noscript=1"
             alt=""
           />
-        </noscript>
+        </noscript> */}
         {/* End Meta Pixel Code */}
         
         {/* Microsoft Clarity Tracking */}
