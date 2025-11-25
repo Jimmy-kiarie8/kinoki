@@ -37,6 +37,52 @@ const packages = {
   },
 };
 
+const extraPackages = {
+  "offer-4": {
+    name: "Buy 4 Get 4 Free • 8 Packs",
+    price: 6400,
+    originalPrice: 12800,
+    image: "/images/3.jpeg",
+  },
+  "offer-5": {
+    name: "Buy 5 Get 5 Free • 10 Packs",
+    price: 7500,
+    originalPrice: 15000,
+    image: "/images/3.jpeg",
+  },
+  "offer-6": {
+    name: "Buy 6 Get 6 Free • 12 Packs",
+    price: 8400,
+    originalPrice: 16800,
+    image: "/images/3.jpeg",
+  },
+  "offer-7": {
+    name: "Buy 7 Get 7 Free • 14 Packs",
+    price: 9800,
+    originalPrice: 19600,
+    image: "/images/3.jpeg",
+  },
+  "offer-8": {
+    name: "Buy 8 Get 8 Free • 16 Packs",
+    price: 11200,
+    originalPrice: 22400,
+    image: "/images/3.jpeg",
+  },
+  "offer-9": {
+    name: "Buy 9 Get 9 Free • 18 Packs",
+    price: 12600,
+    originalPrice: 25200,
+    image: "/images/3.jpeg",
+  },
+  "offer-10": {
+    name: "Buy 10 Get 10 Free • 20 Packs",
+    price: 14000,
+    originalPrice: 28000,
+    image: "/images/3.jpeg",
+  },
+};
+
+const packageCatalog = { ...packages, ...extraPackages };
 
 const kenyanCounties = [
   "Baringo",
@@ -88,6 +134,79 @@ const kenyanCounties = [
   "West Pokot"
 ];
 
+const moreOffers = [
+  {
+    key: "offer-1",
+    packageKey: "single",
+    title: "Buy 1 Pack, Get 1 Free — 2,000 KSH",
+    total: "Total: 2 packs",
+    note: "Save 2,000 KSH (1 pack free)",
+  },
+  {
+    key: "offer-2",
+    packageKey: "double",
+    title: "Buy 2 Packs, Get 2 Free — 3,600 KSH",
+    total: "Total: 4 packs",
+    note: "Save 3,600 KSH (2 packs free)",
+  },
+  {
+    key: "offer-3",
+    packageKey: "triple",
+    title: "Buy 3 Packs, Get 3 Free — 5,100 KSH",
+    total: "Total: 6 packs",
+    note: "Save 5,100 KSH (3 packs free)",
+  },
+  {
+    key: "offer-4",
+    packageKey: "offer-4",
+    title: "Buy 4 Packs, Get 4 Free — 6,400 KSH",
+    total: "Total: 8 packs",
+    note: "Save 6,400 KSH (4 packs free)",
+  },
+  {
+    key: "offer-5",
+    packageKey: "offer-5",
+    title: "Buy 5 Packs, Get 5 Free — 7,500 KSH",
+    total: "Total: 10 packs",
+    note: "Save 7,500 KSH (5 packs free)",
+  },
+  {
+    key: "offer-6",
+    packageKey: "offer-6",
+    title: "Buy 6 Packs, Get 6 Free — 8,400 KSH",
+    total: "Total: 12 packs",
+    note: "Save 8,400 KSH (6 packs free)",
+  },
+  {
+    key: "offer-7",
+    packageKey: "offer-7",
+    title: "Buy 7 Packs, Get 7 Free — 9,800 KSH",
+    total: "Total: 14 packs",
+    note: "Save 9,800 KSH (7 packs free)",
+  },
+  {
+    key: "offer-8",
+    packageKey: "offer-8",
+    title: "Buy 8 Packs, Get 8 Free — 11,200 KSH",
+    total: "Total: 16 packs",
+    note: "Save 11,200 KSH (8 packs free)",
+  },
+  {
+    key: "offer-9",
+    packageKey: "offer-9",
+    title: "Buy 9 Packs, Get 9 Free — 12,600 KSH",
+    total: "Total: 18 packs",
+    note: "Save 12,600 KSH (9 packs free)",
+  },
+  {
+    key: "offer-10",
+    packageKey: "offer-10",
+    title: "Buy 10 Packs, Get 10 Free — 14,000 KSH",
+    total: "Total: 20 packs",
+    note: "Save 14,000 KSH (10 packs free)",
+  },
+];
+
 
 export default function OrderForm() {
   const [formData, setFormData] = useState({
@@ -100,9 +219,10 @@ export default function OrderForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
+  const [showMoreOffers, setShowMoreOffers] = useState(false);
 
   const selectedPackage =
-    packages[formData.packageType as keyof typeof packages];
+    packageCatalog[formData.packageType as keyof typeof packageCatalog];
   const totalAmount = selectedPackage.price * formData.quantity;
 
   const handleInputChange = (field: string, value: string | number) => {
@@ -125,6 +245,11 @@ export default function OrderForm() {
     if (window.innerWidth <= 1024) {
       setTimeout(scrollToFormDetails, 100);
     }
+  };
+
+  const handleMoreOfferSelect = (packageKey: string) => {
+    handlePackageSelect(packageKey);
+    setShowMoreOffers(false);
   };
 
   const handleStepClick = (stepNum: number) => {
@@ -276,6 +401,15 @@ export default function OrderForm() {
                         </div>
                       </div>
                     ))}
+                  </div>
+                  <div className="mt-4 text-right">
+                    <button
+                      type="button"
+                      className="text-sm font-semibold text-emerald-600 transition hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                      onClick={() => setShowMoreOffers(true)}
+                    >
+                      View full price list
+                    </button>
                   </div>
                 </div>
 
@@ -436,6 +570,75 @@ export default function OrderForm() {
           </div>
         </div>
       </div>
+      {showMoreOffers && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+          <div className="w-full max-w-3xl overflow-hidden rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-black/10">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">
+                  More Offers
+                </h3>
+                <p className="text-sm text-slate-500">
+                  Browse our expanded bundle pricing before you order.
+                </p>
+                <p className="mt-1 text-sm font-semibold text-emerald-600">
+                  Selected: {selectedPackage.name}
+                </p>
+              </div>
+              <button
+                type="button"
+                className="text-sm font-semibold text-slate-500 transition hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                onClick={() => setShowMoreOffers(false)}
+              >
+                Close
+              </button>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {moreOffers.map((offer) => {
+                const isActiveOffer =
+                  offer.packageKey === formData.packageType;
+                return (
+                  <div
+                    key={offer.key}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={isActiveOffer}
+                    onClick={() => handleMoreOfferSelect(offer.packageKey)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleMoreOfferSelect(offer.packageKey);
+                      }
+                    }}
+                    className={`rounded-2xl border p-4 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                      isActiveOffer
+                        ? "border-emerald-500 bg-emerald-50/70"
+                        : "border-slate-100 bg-slate-50/60 hover:border-emerald-300 hover:bg-white/70"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="font-semibold text-slate-900">
+                        {offer.title}
+                      </p>
+                      {isActiveOffer && (
+                        <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                          Selected
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-2 text-sm text-slate-600">{offer.total}</p>
+                    {offer.note && (
+                      <p className="mt-1 text-xs uppercase tracking-wide text-slate-500">
+                        {offer.note}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
