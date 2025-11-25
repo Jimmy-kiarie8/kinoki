@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -214,6 +215,8 @@ export default function OrderForm() {
     phone: "",
     email: "",
     county: "",
+    altPhone: "",
+    customerNotes: "",
     packageType: "single",
     quantity: 1,
   });
@@ -469,6 +472,36 @@ export default function OrderForm() {
 
             {/* Customer Information */}
             <Card id="form-details">
+              {/* Selected Package */}
+              <Card className="mb-6">
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <span>Selected Package:</span> 
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={selectedPackage.image}
+                      alt={selectedPackage.name}
+                      className="w-16 h-16 rounded-lg object-cover border border-gray-200"
+                    />
+                    <div>
+                      <h3 className="text-lg font-semibold">{selectedPackage.name}</h3>
+                      <div className="flex items-center gap-3 mt-1">
+                        <span className="text-emerald-600 font-bold text-xl">
+                          KES {selectedPackage.price.toLocaleString()}
+                        </span>
+                        <span className="line-through text-gray-400 text-sm">
+                          KES {selectedPackage.originalPrice.toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+
               <CardHeader>
                 <CardTitle>Delivery Information</CardTitle>
               </CardHeader>
@@ -544,6 +577,38 @@ export default function OrderForm() {
                         ))}
                       </SelectContent>
                     </Select> */}
+                  </div>
+
+                  <div>
+                    <Label htmlFor="altPhone">Alternate Phone</Label>
+                    <Input
+                      id="altPhone"
+                      type="tel"
+                      value={formData.altPhone}
+                      onChange={(e) =>
+                        handleInputChange("altPhone", e.target.value)
+                      }
+                      placeholder="Optional alternate contact"
+                      className="mt-2"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="customerNotes">Customer Notes</Label>
+                    <Textarea
+                      id="customerNotes"
+                      value={formData.customerNotes}
+                      onChange={(e) =>
+                        handleInputChange("customerNotes", e.target.value)
+                      }
+                      placeholder="Add delivery directions or preferences"
+                      className="mt-2"
+                      rows={3}
+                    />
+                    <p className="text-xs text-slate-500 mt-1">
+                      Optional — let us know if there’s a preferred delivery
+                      window or gate code.
+                    </p>
                   </div>
 
                   <Button

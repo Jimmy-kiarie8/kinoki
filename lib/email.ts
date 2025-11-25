@@ -12,7 +12,11 @@ interface EmailSettings {
 
 async function getEmailSettings(): Promise<EmailSettings | null> {
   try {
-    const { data, error } = await supabaseAdmin.from("email_settings").select("*").eq("is_active", true).single()
+    const { data, error } = await supabaseAdmin
+      .from("email_settings")
+      .select("*")
+      .eq("is_active", true)
+      .single()
 
     if (error || !data) {
       console.error("Failed to fetch email settings:", error)
@@ -40,7 +44,7 @@ export async function sendEmail({
   try {
     const settings = await getEmailSettings()
 
-    
+
     if (!settings) {
       throw new Error("Email settings not configured")
     }
@@ -75,7 +79,10 @@ export async function sendEmail({
     return { success: true, messageId: info.messageId }
   } catch (error) {
     console.error("Email sending failed:", error)
-    return { success: false, error: error instanceof Error ? error.message : "Unknown error" }
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Unknown error",
+    }
   }
 }
 
